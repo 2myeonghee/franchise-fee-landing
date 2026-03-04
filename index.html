@@ -747,26 +747,122 @@
       line-height: 1.7;
     }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 480px) {
-      .hero-stats {
-        grid-template-columns: 1fr 1fr;
-      }
-      .infographic {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .info-arrow {
-        text-align: center;
-        transform: rotate(90deg);
-      }
-    }
+    /* ══════════════════════════════════════
+       RESPONSIVE — 모바일 최적화
+       기준: 480px 이하 (대부분의 스마트폰)
+    ══════════════════════════════════════ */
+
+    /* 데스크탑: 4열 통계 */
     @media (min-width: 600px) {
       .hero-stats { grid-template-columns: repeat(4, 1fr); }
       .hero-stat:nth-child(2n) { border-right: 1px solid rgba(255,255,255,0.12); }
       .hero-stat:nth-child(3),
       .hero-stat:nth-child(4) { border-bottom: 0; }
       .hero-stat:nth-child(4) { border-right: none; }
+    }
+
+    @media (max-width: 767px) {
+
+      /* ── 기본 타이포 ── */
+      body { font-size: 15px; }
+
+      /* ── 헤더 ── */
+      .header-brand strong { font-size: 13px; }
+      .btn-header { font-size: 12px; padding: 5px 13px; }
+
+      /* ── 섹션 공통 ── */
+      .section-inner { padding: 48px 20px; }
+      .section-title { font-size: 1.35rem; }
+      .section-label { font-size: 10px; }
+
+      /* ── 히어로 ── */
+      #hero { padding: 52px 20px 60px; }
+      .hero-badge { font-size: 11px; padding: 3px 10px; margin-bottom: 18px; }
+      .hero-headline { font-size: clamp(1.35rem, 5.5vw, 1.8rem); margin-bottom: 14px; }
+      .hero-sub { font-size: 0.9rem; margin-bottom: 24px; }
+      .hero-trust { gap: 14px; margin-bottom: 28px; }
+      .hero-trust span { font-size: 12px; }
+      /* 통계: 2×2 고정 */
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+      .hero-stat { padding: 14px 16px; }
+      .hero-stat-num { font-size: 1.55rem; }
+      .hero-stat-label { font-size: 11px; }
+      .btn-hero { font-size: 0.95rem; padding: 13px; margin-top: 28px; max-width: 100%; }
+
+      /* ── 인포그래픽 ── */
+      .infographic { flex-direction: column; align-items: stretch; gap: 4px; }
+      .info-arrow { text-align: center; padding: 2px 0; font-size: 13px; }
+      .info-box { padding: 14px 12px; min-width: unset; }
+      .info-box-title { font-size: 13px; }
+      .info-box-sub { font-size: 12px; }
+
+      /* ── 판결 현황 ── */
+      .ruling-card { padding: 18px 16px; }
+      .ruling-amount { font-size: 1.9rem; }
+      .news-item { gap: 8px; }
+      .news-outlet { font-size: 10px; min-width: 48px; }
+      .news-headline { font-size: 13px; }
+
+      /* ── 성공사례 ── */
+      .case-card { padding: 16px 18px; }
+      .case-title { font-size: 0.95rem; }
+      .case-content { font-size: 0.85rem; }
+      .case-quote { font-size: 0.825rem; }
+      /* 환급규모 테이블: 모바일에서 스크롤 */
+      .refund-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .refund-table th, .refund-table td { padding: 10px 12px; font-size: 13px; }
+
+      /* ── 자가진단 ── */
+      .check-item label { font-size: 0.9rem; }
+      #check-result { font-size: 0.875rem; padding: 14px; }
+      .btn-navy { font-size: 0.9rem; padding: 11px 20px; }
+
+      /* ── FAQ ── */
+      .faq-q { font-size: 0.95rem; }
+      .faq-a { font-size: 0.875rem; }
+      .faq-item { padding: 16px 0; }
+
+      /* ── 진행 절차 ── */
+      #process { padding: 52px 20px; }
+      .process-title { font-size: 1.3rem; }
+      .process-sub { font-size: 0.875rem; margin-bottom: 28px; }
+      .step-title { font-size: 0.9rem; }
+      .step-desc { font-size: 0.825rem; }
+      .steps { gap: 18px; }
+
+      /* ── 변호인단 ── */
+      .stats-grid { gap: 8px; }
+      .stat-box { padding: 14px 16px; }
+      .stat-box-num { font-size: 1.5rem; }
+      .stat-box-label { font-size: 11px; }
+      .lawyer-card { padding: 16px 18px; }
+      .lawyer-name { font-size: 1rem; }
+      .team-sub { font-size: 0.875rem; }
+
+      /* ── 상담폼 ── */
+      .consult-title { font-size: 1.2rem; }
+      .consult-urgency { font-size: 0.85rem; margin-bottom: 20px; }
+      .form-wrap { padding: 20px 16px; }
+      /* iOS Safari 줌 방지: input font-size 반드시 16px */
+      .form-group input[type="text"],
+      .form-group input[type="tel"] { font-size: 16px; padding: 12px 13px; }
+      .form-group label { font-size: 12px; }
+      .btn-submit { font-size: 0.95rem; padding: 14px; }
+      .form-security { font-size: 11px; }
+
+      /* ── 푸터 ── */
+      footer { padding: 32px 20px; font-size: 12px; }
+      .footer-links { gap: 12px; }
+    }
+
+    /* 아주 작은 화면 (375px 이하) 추가 조정 */
+    @media (max-width: 375px) {
+      .hero-headline { font-size: 1.3rem; }
+      .hero-stat-num { font-size: 1.35rem; }
+      .section-title { font-size: 1.2rem; }
+      .ruling-amount { font-size: 1.65rem; }
+      .hero-trust { gap: 10px; }
+      .hero-trust span { font-size: 11px; }
     }
   </style>
 </head>
@@ -901,6 +997,7 @@
       </div>
     </div>
 
+    <div class="refund-table-wrap">
     <table class="refund-table">
       <thead>
         <tr>
@@ -928,6 +1025,7 @@
         </tr>
       </tfoot>
     </table>
+    </div><!-- /refund-table-wrap -->
   </div>
 </section>
 
